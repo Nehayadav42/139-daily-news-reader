@@ -1,17 +1,31 @@
 # 📰 Daily News Reader
 
-A simple Python project that fetches the latest top news headlines using the **GNews API** and saves them into a formatted text file.  
-This project demonstrates **REST API usage, JSON handling, OOP concepts, environment variables, and file handling** in Python.
+This Python project fetches the latest top news headlines using the **GNews API** and stores the results into both a formatted text file and a JSON backup file.  
+It demonstrates **API integration, OOP concepts, JSON parsing, error handling, and file handling** — fully aligned with academic project requirements.
+
+---
+
+## 👩‍💻 Developer Information
+
+| Field | Details |
+|-------|---------|
+| **Name** | Neha Yadav |
+| **Roll No.** | 139 |
+| **Course** | B.Tech CSE |
+| **Project Type** | Python Mini Project |
 
 ---
 
 ## 📌 Features
 
-- Fetches live news using the GNews API
-- Stores title, description, and URL
-- Saves output into a text file named with the current date
-- Uses a class (`Article`) to structure news data
-- Stores API key securely using `.env` file
+✔ Fetches real-time news headlines  
+✔ Uses environment variables to secure API key  
+✔ Object-Oriented structure using an `Article` class  
+✔ Error handling for internet/API failures  
+✔ Saves news in two formats:  
+   - `.txt` (human-readable format)  
+   - `.json` (machine-readable backup format)  
+✔ Clean and modular code with comments and docstrings
 
 ---
 
@@ -19,11 +33,11 @@ This project demonstrates **REST API usage, JSON handling, OOP concepts, environ
 
 | Component | Purpose |
 |----------|---------|
-| Python   | Programming language |
-| requests | To make API calls |
-| python-dotenv | To load API key securely |
-| JSON     | To parse API response |
-| File Handling | To save results locally |
+| Python 3 | Programming language |
+| requests | API call handling |
+| python-dotenv | Loading secret API key securely |
+| JSON | Parsing API responses |
+| File I/O | Saving news data |
 
 ---
 
@@ -31,20 +45,19 @@ This project demonstrates **REST API usage, JSON handling, OOP concepts, environ
 
 daily-news-reader/
 │
-├── main.py # Main Python script
+├── main.py # Main application file
 ├── README.md # Project documentation
-├── .env # Stores API key (Not uploaded to GitHub)
-└── .gitignore # Prevents .env from being pushed to repo
+├── .env # Stores API Key (NOT uploaded)
+├── .gitignore # Prevents sensitive files from uploading
+└── news_YYYY-MM-DD.txt (auto generated)
+
 
 
 ---
 
-## 🚀 Setup & Installation
+## 🚀 How to Run This Project
 
-### 1️⃣ Install Dependencies
-
-Run:
+### 1️⃣ Install Required Libraries
 
 ```sh
 pip install requests python-dotenv
-
