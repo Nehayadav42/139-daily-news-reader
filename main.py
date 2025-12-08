@@ -1,6 +1,12 @@
 """
 Daily News Reader  
 Author: Neha Yadav (Roll No. 139)
+
+Description:
+This Python script fetches the latest top news headlines from the GNews API
+using the requests library. It uses OOP concepts such as encapsulation with an
+`Article` class, handles errors using try-except, works with JSON data from APIs,
+and saves the formatted news output into a text file named with the current date.
 """
 
 import os
@@ -14,7 +20,9 @@ load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
 
+# --------------------------------------------------------
 # CLASS: Article -> Demonstrates Encapsulation in OOP
+# --------------------------------------------------------
 class Article:
     def __init__(self, title, url, description):
         # Private attributes for encapsulation
@@ -40,12 +48,15 @@ class Article:
             f"Description: {self.__description}\n"
         )
 
+
+# --------------------------------------------------------
 # FUNCTION: Fetch Latest News from API with Error Handling
+# --------------------------------------------------------
 def fetch_news():
     try:
         url = f"https://gnews.io/api/v4/top-headlines?token={API_KEY}&lang=en"
         response = requests.get(url)
-        response.raise_for_status() 
+        response.raise_for_status()  # raises an HTTPError if API response is invalid
 
         return response.json().get("articles", [])
 
@@ -60,7 +71,10 @@ def fetch_news():
 
     return []
 
+
+# --------------------------------------------------------
 # FUNCTION: Save formatted news to a text file
+# --------------------------------------------------------
 def save_to_text(articles):
     file_name = f"news_{datetime.now().strftime('%Y-%m-%d')}.txt"
 
@@ -72,7 +86,9 @@ def save_to_text(articles):
     print(f"✔ News saved successfully in: {file_name}")
 
 
+# --------------------------------------------------------
 # OPTIONAL FEATURE: Save news as JSON
+# --------------------------------------------------------
 def save_to_json(articles):
     json_data = [
         {
@@ -89,6 +105,9 @@ def save_to_json(articles):
     print("✔ JSON backup created: news.json")
 
 
+# --------------------------------------------------------
+# MAIN PROGRAM EXECUTION
+# --------------------------------------------------------
 def main():
     print("\n📢 Fetching today's top news...\n")
 
@@ -114,3 +133,5 @@ def main():
 # Run the program
 if __name__ == "__main__":
     main()
+
+
