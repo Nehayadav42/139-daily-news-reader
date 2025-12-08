@@ -20,9 +20,7 @@ load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
 
-# --------------------------------------------------------
 # CLASS: Article -> Demonstrates Encapsulation in OOP
-# --------------------------------------------------------
 class Article:
     def __init__(self, title, url, description):
         # Private attributes for encapsulation
@@ -49,9 +47,7 @@ class Article:
         )
 
 
-# --------------------------------------------------------
 # FUNCTION: Fetch Latest News from API with Error Handling
-# --------------------------------------------------------
 def fetch_news():
     try:
         url = f"https://gnews.io/api/v4/top-headlines?token={API_KEY}&lang=en"
@@ -72,9 +68,7 @@ def fetch_news():
     return []
 
 
-# --------------------------------------------------------
 # FUNCTION: Save formatted news to a text file
-# --------------------------------------------------------
 def save_to_text(articles):
     file_name = f"news_{datetime.now().strftime('%Y-%m-%d')}.txt"
 
@@ -86,9 +80,7 @@ def save_to_text(articles):
     print(f"✔ News saved successfully in: {file_name}")
 
 
-# --------------------------------------------------------
 # OPTIONAL FEATURE: Save news as JSON
-# --------------------------------------------------------
 def save_to_json(articles):
     json_data = [
         {
@@ -105,9 +97,7 @@ def save_to_json(articles):
     print("✔ JSON backup created: news.json")
 
 
-# --------------------------------------------------------
 # MAIN PROGRAM EXECUTION
-# --------------------------------------------------------
 def main():
     print("\n📢 Fetching today's top news...\n")
 
